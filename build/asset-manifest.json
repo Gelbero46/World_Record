@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1f9b457d.chunk.css",
+    "main.js": "/static/js/main.a5b23e02.chunk.js",
+    "main.js.map": "/static/js/main.a5b23e02.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.72e13615.js",
+    "runtime-main.js.map": "/static/js/runtime-main.72e13615.js.map",
+    "static/js/2.81a2589c.chunk.js": "/static/js/2.81a2589c.chunk.js",
+    "static/js/2.81a2589c.chunk.js.map": "/static/js/2.81a2589c.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.1f9b457d.chunk.css.map": "/static/css/main.1f9b457d.chunk.css.map",
+    "static/js/2.81a2589c.chunk.js.LICENSE.txt": "/static/js/2.81a2589c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/heroStadium.a9c2e4c5.jpg",
+    "static/media/logoDeadlinedays1.bc9edd4e.png": "/static/media/logoDeadlinedays1.bc9edd4e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.72e13615.js",
+    "static/js/2.81a2589c.chunk.js",
+    "static/css/main.1f9b457d.chunk.css",
+    "static/js/main.a5b23e02.chunk.js"
+  ]
+}

@@ -1,15 +1,17 @@
 :root {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 1em;
+  --primary-color-- : #4DAAA7;
+  --secondary-color-- : #3F8F8B;
+  --tetiary-color : #583c1f;
 }
 
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
+
 
 body {
   background-color: #fff;
@@ -18,19 +20,27 @@ body {
 
 .bold {
   font-weight: bold;
-  color: #c41e1e;
+  color: #b40909;
 }
 
 .navbar {
+  position: fixed;
+  display: block;
+  width: 100%;
+  z-index: 2000;
   box-shadow: 0px 11px 15px -6px rgba(0, 0, 0, 0.38);
   -webkit-box-shadow: 0px 11px 15px -6px rgba(0, 0, 0, 0.38);
   -moz-box-shadow: 0px 11px 15px -6px rgba(0, 0, 0, 0.38);
   padding: .5rem 0;
-  background-color: transparent;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#712cf9), to(rgba(113, 44, 249, 0.95)));
-  background-image: linear-gradient(to bottom, #712cf9, rgba(113, 44, 249, 0.95));
+  /* background-color: transparent; */
+  /* background-image: -webkit-gradient(linear, left top, left bottom, from(#712cf9), to(rgba(113, 44, 249, 0.95))); */
+  /* background-image: linear-gradient(to bottom, #4DAAA7, rgb(63, 143, 139, .95)); */
+  background-color: var(--secondary-color--) !important;
 }
 
+.navbar-brand {
+  padding: 0;
+}
 .nav--width {
   max-width: 4rem;
 }
@@ -38,23 +48,31 @@ body {
 .nav--height {
   height: 100vh;
 }
-
+#navbarScroll {
+  -webkit-transform: translateX(-130px);
+          transform: translateX(-130px);
+  
+}
+.form-control, .btn {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.75rem;
+}
+.search--box {
+  width: 350px;
+}
 .search-container {
   position: relative;
+  margin-top: .5rem;
 }
 
 .dropdown {
   position: absolute;
   background-color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   border: 1px solid #edd;
-  width: 100%;
+  width: calc(100% - 8px);
+  border-radius: 3px;
 }
 
 .dropdown:empty {
@@ -64,8 +82,13 @@ body {
 .dropdown-row {
   cursor: pointer;
   text-align: start;
-  margin: 2px 0;
+  padding: 2px 0;
   padding-left: 1rem;
+}
+.dropdown-row:hover {
+ 
+  color: #333333;
+  background-color: #ddd;
 }
 
 .no--item {
@@ -74,14 +97,135 @@ body {
   padding: 2rem;
 }
 
-.main {
-  margin-bottom: 2rem;
-  overflow: auto;
-  padding: 2rem 0;
+.search--button {
+  display: inline-block;
+  background-color: transparent;
+  border : 3px solid var(--secondary-color--);
+  margin-top : 1rem;
+  border-radius: 20px;
+  scale: 1;
+  transition: scale .2s;
+}
+.search--button a {
+  padding : .2rem 1.5rem;
+  display: block;
+  color: #fff;
+}
+.search--button:hover {
+  scale: 1.1;
+  border-color: #fff;
+  cursor: pointer;
+
 }
 
+.content {
+  /* display: none; */
+  opacity: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.hero {
+  background-color: #333333;
+  background-image: url('./assets/heroStadium.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: bottom;
+  background-blend-mode:overlay;
+  background-attachment: fixed;
+  display: flex;
+  height: 30rem;
+  align-items: center;
+}
+.hero--text{
+  /* padding: 10rem 2rem; */
+  
+  
+
+  padding: 1rem 2rem;
+  color: #eee;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-name: slidein;
+          animation-name: slidein;
+}
+.table::-webkit-scrollbar {
+  width: 100px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(#4DAAA7, #3F8F8B);
+  background-image: linear-gradient(var(--primary-color--), var(--secondary-color--));
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(#92713a, #583c1f);
+}
+
+/* ::-webkit-scrollbar-thumb:horizontal{
+    background-image: linear-gradient(var(--primary-color--), var(--secondary-color--));
+    border-radius: 10px;
+  } */
+  @-webkit-keyframes slidein {
+    from {
+      margin-left: 100%;
+      opacity: 0.2;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: auto;
+      opacity : .9
+    }
+  }
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      opacity: 0.2;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: auto;
+      opacity : .9
+    }
+  }
+  .hero--text * {
+    color: #eee;
+  }
+  .hero--text h1 {
+    color: #4DAAA7;
+    color: var(--primary-color--)
+  }
+
+.main {
+  /* margin: 2rem 0; */
+  padding: 2rem 2rem;
+  display: flex;
+  grid-gap: 2em;
+  gap: 2em;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.table--header {
+  min-width: 500px;
+  overflow: auto;
+  flex-shrink: 1;
+  max-height: 350px;
+  flex: 1 1;
+}
 .table {
-  background-color: #f8f9fa;
+  background-color: #fff;
 }
 
 .table th {
@@ -93,23 +237,260 @@ body {
   padding: .5rem;
 }
 
-.table tbody tr:nth-child(even) {
-  background: lightgreen;
+/* .table tbody tr:nth-child(even) {
+  background: var(--primary-color--);
+} */
+.table tbody tr:hover {
+  background: #4DAAA7;
+  background: var(--primary-color--);
+  color: #000;
+  cursor : pointer
+}
+.select--country {
+  /* border-collapse: collapse; */
+  /* margin: 0 1rem; */
+  max-width: 800px;
+  flex-shrink: 1;
 }
 
+.header {
+  display: flex;
+}
+
+
+.toogle-continent {
+  display: none;
+  /* transition: opacity 1s ease-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden; */
+}
+.header--item {
+  cursor: pointer;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding : .75rem 1.2rem;
+  border-collapse: collapse;
+  flex-shrink: 1;
+ 
+  margin-bottom : 0;     
+}
+.header--item:hover {
+  background-color: #eee;
+  
+  /* border-top-left-radius: 5px;
+  border-top-right-radius: 5px; */
+}
+.header--last {
+  /* padding : .75rem; */
+  margin-bottom : 0; 
+  flex: 1 1;
+  border-bottom: 1px solid #4DAAA7;
+  border-bottom: 1px solid var(--primary-color--);
+}
+.group {
+  border: 1px solid #4DAAA7;
+  border: 1px solid var(--primary-color--);
+  border-top: none;
+  padding: 0 .75rem;
+}
+h5 {
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  /* color: ; */
+}
+
+.countries {
+  border: 1px solid #4DAAA7;
+  border: 1px solid var(--primary-color--);
+  border-radius: 3px;
+  /* padding: .5rem; */
+  /* marg */
+  /* margin: 0 .75rem; */
+  /* margin-top: .5rem; */
+  /* width: auto; */
+  margin-bottom: .5rem;
+}
+
+.countries--header {
+  padding: .4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.countries--header:hover {
+  background-color: #ddd;
+  /* padding: .4rem; */
+}
+.g-l, .a-f, .m-r , .s-z{
+  display: block;
+  padding : .2rem .5rem;
+  border-bottom  : 1px solid #eee;
+  cursor : pointer
+}
+.g-l:hover, .a-f:hover, .m-r:hover , .s-z:hover {
+  background-color: #4DAAA7;
+  background-color: var(--primary-color--);
+}
 .footer {
-  position: absolute;
-  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: .75rem 1rem;
+  font-weight: bold;
+  background-color: #3F8F8B;
+  background-color: var(--secondary-color--);
+  color: #fff;
   width: 100%;
+  /* border-top: 3px solid #583c1f; */
+  font-size: .8rem;
+}
+
+.footer a {
+  flex-basis: 20%;
   text-align: center;
-  background-color: #f8f9fa;
 }
 
-.footer p {
-  margin-top: 1rem;
+.select {
+  border-left: 1px solid #fff;
+}
+.footer a:hover {
+  color: #583c1f;
+  color: var(--tetiary-color);
 }
 
-.search--box {
-  width: 350px;
-}
-/*# sourceMappingURL=index.css.map */
+
+
+
+  @media (max-width: 1200px) {
+    .header--item {
+      padding : .3rem .4rem;
+    }
+    .header--last {
+      display: none;
+    }
+  }
+  @media (max-width: 1000px) {
+    /* .select--country {
+      margin: 0 .5rem;
+    } */
+    .toogle-continent {
+      display: block;
+      /* opacity: 1;
+      height: auto; */
+    }
+    .header {
+      flex-direction: column;
+    }
+    .group {
+      border-top: 1px solid #3F8F8B;
+      border-top: 1px solid var(--secondary-color--);
+    }
+  }
+  @media (max-width : 991px) {
+    #navbarScroll {
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
+    }
+    .search-container {
+      flex: 1 1;
+    }  
+    .search--box {
+      width : 100%
+    }
+  }
+  @media (max-width: 800px) {
+    .main {
+      display: block;
+    }
+    .header--item {
+      padding : .75rem 1.2rem;
+    }
+    .header--last {
+      display: block;
+    }
+    .toogle-continent {
+      display: none;
+      /* transition: opacity 1s ease-out;
+      opacity: 0;
+      height: 0;
+      overflow: hidden; */
+    }
+    .header {
+      flex-direction: row;
+    }
+    .group {
+      border-top: none;
+    }
+    .table--header {
+      min-width: 200px;
+    }
+    .select--country {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+  @media (max-width: 640px) {
+    .header--item {
+      padding : .3rem .5rem;
+    }
+      
+  }
+  
+  @media (max-width: 570px) {
+    .main {
+      padding: 2rem 1rem;
+    }
+    .header--last {
+      display: none;
+    }
+  
+  }
+  
+  @media (max-width: 470px) {
+    .header--last {
+      padding: .75rem;
+      display: block;
+    }
+      .header--item {
+      font-size: .8rem;
+      padding : .2rem .3rem;
+    }
+  }
+  
+  
+  @media (max-width: 450px) {
+    /* .select--country {
+      margin: 0 .5rem;
+    } */
+    .toogle-continent {
+      display: block;
+          /* opacity: 1;
+      height: auto; */
+    }
+    .header {
+      flex-direction: column;
+    }
+    .group {
+      border-top: 1px solid #3F8F8B;
+      border-top: 1px solid var(--secondary-color--);
+    }
+  }
+  
+  @media (max-width: 350px) {
+    .navbar-brand img {
+      height: 2.5rem !important;
+    }
+    .navbar-toggler {
+      padding: 0.2rem 0.5rem;
+  }
+    .navbar-toggler-icon {
+      height: 1.5rem;
+  }
+  
+  }
+  /* Hi, I believe the icon with the Upstart is your logo.
+  Do you have the png file that doesn't include the hex(color code)? Just the Logo. Thanks */
+  /*# sourceMappingURL=index.css.map */

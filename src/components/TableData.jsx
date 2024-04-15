@@ -1,5 +1,5 @@
 import React from 'react'
-var data = require('../Location_updated.json')
+var data = require('../LocationRecent.js')
 
 const TableData = ({ searchedText }) => {
     const coloum_names = ['Member association', 
@@ -17,7 +17,7 @@ const TableData = ({ searchedText }) => {
     return(
         <>
             {searchedText ?
-                <table className="table">
+                <table className="table" id="search_result">
                 <thead>
                     <tr>
                         <th>S.N</th>
@@ -34,34 +34,88 @@ const TableData = ({ searchedText }) => {
                 <tbody>
                 {
                     data.filter((item) => {
-                        return searchedText && item.name == searchedText 
+                        return searchedText && item.name === searchedText 
                     })
                     .map((data, index)=>{
-                        console.log("HHHHHHHHH", searchedText)
+                        // console.log("HHHHHHHHH", searchedText)
                         return(
-                            <>
-                                    {console.log(data.info)}
-                                    {data.info.map((item, index) => {
-                                        console.log(index, item)
-                                        return(
-                                            <tr key={index}>
-                                                    <td>{index+1}</td>
-                                                    <td>{data.name}</td>
-                                                {item.map((item_, index_) => {
-                                                    console.log("indexxxx", index_)
-                                                    return (
+                                    ['M', 'F', 'A'].map( (itm) => {
+                                        return (
+                                            
+                                            data.info.filter( (it) => {
+                                                return it[0] === itm && it
+                                            })
+                                            .map((item, index) => {
+                                                // console.log(index, item)
+                                                return(
+                                                    <tr key={index}>
+                                                            <td>{index+1}</td>
+                                                            <td>{data.name}</td>
+                                                       
+                                                        {
 
-                                                            <td key={index + index_}
-                                                                className={`${index_ >5 ? 'bold' : ''}`}>{item_}</td>
-                                                    ) 
-                                            }
-                                            )} 
-                                            </tr>
+                                                        }
+                                                        {item.map((item_, index_) => {
+                                                            // console.log("indexxxx", index_)
+                                                            return (
+                                                                <td key={index + index_}>{item_}</td>
+
+                                                                    // <td key={index + index_}
+                                                                    //     className={`${index_ >5 ? 'bold' : ''}`}>{item_}</td>
+                                                            ) 
+                                                    }
+                                                    )} 
+                                                    </tr>
+                                                    
+            
+                                                )
+                                            })
+                                        )
+                                    })
+
+                                    // data.info.map((item, index) => {
+                                    //     // console.log(index, item)
+                                    //     return(
+                                    //         <tr key={index}>
+                                    //                 <td>{index+1}</td>
+                                    //                 <td>{data.name}</td>
+                                               
+                                    //             {
+
+                                                 
+                                                  
+                                    //                 // ['M','F','A'].map( (itm) => {
+                                    //                 //     return (
+                                    //                 //         item.filter( (item_) => {
+                                    //                 //             return item_[0] == itm && item_
+                                    //                 //         })
+                                    //                 //         .map( (_item_,) => {
+                                    //                 //             return (
+                                    //                 //                 <td>{_item_}</td>
+                                    //                 //             )
+                                    //                 //             // return (
+                                    //                 //             //       <td key={1 + index_}
+                                    //                 //             // className={`${index_ >5 ? 'bold' : ''}`}>{_item_}</td>
+                                    //                 //             // )
+                                    //                 //         })
+                                    //                 //     )
+                                    //                 // })
+                                    //             }
+                                    //             {item.map((item_, index_) => {
+                                    //                 // console.log("indexxxx", index_)
+                                    //                 return (
+
+                                    //                         <td key={index + index_}
+                                    //                             className={`${index_ >5 ? 'bold' : ''}`}>{item_}</td>
+                                    //                 ) 
+                                    //         }
+                                    //         )} 
+                                    //         </tr>
                                             
     
-                                        )
-                                    })}
-                            </>
+                                    //     )
+                                    // })
+                            
     
                         )
                     })
